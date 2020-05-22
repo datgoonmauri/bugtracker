@@ -1,0 +1,31 @@
+<table>
+<thead>Title: {{ticket.title}}</thead>
+<th>Date: {{ticket.date}}</th>
+<td>Description: {{ticket.description}}</td>
+<th>Created by: {{ticket.valid_user}}</th>
+<td>Ticket Status: {{ticket.ticket_status}}</td>
+<td>Assigned to: {{ticket.assigned_user}}</td>
+<td>Completed by: {{ticket.completed_user}}</td>
+    <tbody>
+    <colgroup>
+        <col><a href={%url 'in_progress' ticket_id=ticket.id%}><button>In Progress</button></a></col>
+        <col><a href={%url 'invalid' ticket_id=ticket.id%}><button>Invalid</button></a></col>
+<col><a href={%url 'DONE' ticket_id=ticket.id%}><button>Complete</button></a></col>
+<col><a href={%url 'edit' ticket_id=ticket.id%}><button>Edit</button></a></col>
+    </colgroup></tbody>
+</table>
+<style>
+    table{
+    font-size: medium;
+    font-variant-caps: small-caps;
+    border: 3px solid black;
+    padding: 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    align-items: stretch;
+}
+
+</style>
+

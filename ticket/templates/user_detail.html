@@ -1,0 +1,34 @@
+<html>
+<table>
+<tr>Assigned Tickets: </tr>
+<style>
+    html{
+    font-size: x-large;
+    font-variant-caps: small-caps;
+
+    }
+    table {
+border: 3px solid black;
+}
+th, td {
+border: 1px solid black;
+}
+
+</style>
+{%for ticket in assigned_ticket%}
+<th>{{ticket}}</th>
+{%endfor%}
+</table>
+<table>
+<tr>Tickets Filed: </tr>
+{%for ticket in valid_ticket%}
+<th>{{ticket}}</th>
+{%endfor%}
+</table>
+<table>
+<tr>Tickets Completed: </tr>
+{%for ticket in completed_ticket%}
+<th>{{ticket}}</th>
+</table>
+{%endfor%}
+</html>

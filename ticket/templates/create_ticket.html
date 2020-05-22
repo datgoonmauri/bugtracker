@@ -1,0 +1,24 @@
+| <a href = {% url 'signup'%}><button>Create an Account</button></a>
+<style>
+   form {
+   font-size: x-large;
+   font-variant-caps: small-caps;
+   display: inline-block;
+  width: 100px;
+   height: 30px;
+   background-color: teal;
+   margin: 0 auto;
+   }
+</style>
+ <form action="" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    {%if user.is_authenticated%}
+    <input type="submit" value="Create Ticket">
+    {%else%}
+    <input type="submit" value="Click to login">
+    <small style="color: red;">{{field.help_text}}</small>
+    {%endif%}
+    <br>
+
+</form>

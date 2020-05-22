@@ -1,0 +1,94 @@
+<table>
+
+<style>
+    html{
+    border-top: 2px solid black;
+    border-bottom: 2px solid black;
+    font-size: medium;
+    font-variant-caps: small-caps;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    text-align: center;
+    font-size: large;
+    font-variant-caps: small-caps;
+    text-shadow: 10px 5px 10px gray;
+    border: 35px solid yellow;
+    border-image: linear-gradient(130deg, red, yellow 20%, green 80%, blue);
+    border-image-slice: 1;
+    box-shadow: 10px 10px 5px black;
+    }
+
+
+</style>
+    <table>
+        <thead>
+
+<caption> Bug Tracker</caption>
+
+        </thead>
+
+
+</table>
+
+
+{% if user.is_authenticated %}
+<table>
+<tr> <a href= {%url 'user_detail' user.id%}>{{ user.username }}</a> is Logged In</tr>
+
+    | <tr><a href = {% url 'signup'%}> <button>Create New Account</button></a> </tr>|
+<tr><a href = {% url 'create_ticket' user_id=user.id%}><button>Create Ticket</button></a> </tr>|
+<tr><a href="{% url 'logout' %}"><button>logout</button></a> </tr>|
+</table>
+    <table>
+<thead>New Tickets:</thead>
+{%for ticket in ticket_data%}
+{% if ticket.ticket_status == "NEW"%}
+      <tbody>Title: <a href = {% url 'ticket_detail' id=ticket.id%}>{{ticket.title}}</a>|
+    <th> Filed by: <a href = {%url 'user_detail' user.id%}>{{ticket.filed_user}}</a></th> --
+      <th>Status: {{ticket.ticket_status}} </th></tbody>
+    {%endif%}
+{% endfor %}
+    </table>
+
+<table>
+<thead> In Progress Tickets:</thead>
+{%for ticket in ticket_data%}
+{% if ticket.ticket_status == "IN PROGRESS"%}
+      <tbody>Title: <a href = {% url 'ticket_detail' id=ticket.id%}>{{ticket.title}}</a>|
+      <th>Created by: <a href = {%url 'user_detail' user.id%}>{{ticket.filed_user}}</a> --</th>
+      <th>Status: {{ticket.ticket_status}}</th> </tbody>
+    {%endif%}
+{%endfor%}
+</table>
+
+<table>
+<thead>Completed Tickets:</thead>
+{%for ticket in ticket_data%}
+{% if ticket.ticket_status == "DONE"%}
+      <tbody>Title: <a href = {% url 'ticket_detail' id=ticket.id%}>{{ticket.title}}</a>|
+      <th> Created By: <a href = {%url 'user_detail' user.id%}>{{ticket.filed_user}}</a> -- </th>
+      <th>Status:
+          {{ticket.ticket_status}}</th>
+      </tbody>
+    {%endif%}
+{%endfor%}
+</table>
+
+<col>
+<thead>Invalid Tickets:</thead>
+{%for ticket in ticket_data%}
+{% if ticket.ticket_status == "INVALID"%}
+      <col>Title: <a href = {% url 'ticket_detail' id=ticket.id%}>{{ticket.title}}</a>|
+    <th> Created by: <a href = {%url 'user_detail' user_id=user.id%}>{{ticket.filed_user}}</a> --</th>
+    <col>Status:
+    {{ticket.ticket_status}}
+    </col>
+    {%endif%}
+{% endfor %}
+    </table>
+
+{% endif %}
+</table>
+</html>

@@ -1,0 +1,17 @@
+<html>
+<style>
+    html{
+    font-size: x-large;
+    font-variant-caps: small-caps;
+
+    }
+
+</style>
+<h2>Sign up</h2>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Sign up</button>
+  </form>
+  <a href = {% url 'login'%}><button>LogIn</button></a>
+</html>

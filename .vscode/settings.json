@@ -1,0 +1,9 @@
+{
+    "python.pythonPath": "/Users/MAU/.pyenv/shims/python",
+    "python.linting.flake8Enabled": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pycodestyleEnabled": false,
+    "python.linting.prospectorEnabled": false,
+    "python.linting.pydocstyleEnabled": false,
+    "python.linting.enabled": true
+}
