@@ -7,12 +7,12 @@
 <td>Assigned to: {{ticket.assigned_user}}</td>
 <td>Completed by: {{ticket.completed_user}}</td>
     <tbody>
-    <colgroup>
+    <table>
         <col><a href={%url 'in_progress' ticket_id=ticket.id%}><button>In Progress</button></a></col>
         <col><a href={%url 'invalid' ticket_id=ticket.id%}><button>Invalid</button></a></col>
 <col><a href={%url 'DONE' ticket_id=ticket.id%}><button>Complete</button></a></col>
 <col><a href={%url 'edit' ticket_id=ticket.id%}><button>Edit</button></a></col>
-    </colgroup></tbody>
+    </table></tbody>
 </table>
 <style>
     table{

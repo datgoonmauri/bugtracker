@@ -108,9 +108,9 @@ def completed_ticket(request, ticket_id):
 	ticket = Tickets.objects.get(id=ticket_id)
 	ticket.ticket_status = 'DONE'
 	ticket.completed_user = request.user
-	ticket.assigned_user = None
+	ticket.assigned_user = request.user
 	ticket.save()
-	assert isinstance(ticket_id,)
+	assert isinstance({ticket_id:ticket_id ,user_detail: user_detail},)
 	return HttpResponseRedirect(
 		reverse('ticket_detail', args=ticket_id))
 

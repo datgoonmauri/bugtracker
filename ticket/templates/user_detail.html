@@ -1,5 +1,5 @@
-<html>
-<table>
+<thead>
+<a>
 <tr>Assigned Tickets: </tr>
 <style>
     html{
@@ -16,12 +16,12 @@ border: 1px solid black;
 
 </style>
 {%for ticket in assigned_ticket%}
-<th>{{ticket}}</th>
+
 {%endfor%}
-</table>
 <table>
-<tr>Tickets Filed: </tr>
+<tr> Valid Tickets </tr>
 {%for ticket in valid_ticket%}
+    <p><a href = {%url 'ticket_detail' user.id%}>{{ticket}}</a>
 <th>{{ticket}}</th>
 {%endfor%}
 </table>
